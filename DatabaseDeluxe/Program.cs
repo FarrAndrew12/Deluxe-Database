@@ -1,4 +1,13 @@
-﻿public class Program
+﻿using DatabaseDeluxe.Models;
+using DatabaseDeluxe;
+
+
+
+
+
+
+
+public class Program
 {
     int studentnumber;
     int convertednumber;
@@ -9,6 +18,14 @@
         while (runAgain == true)
 
         {
+
+            StudentCrud SC = new StudentCrud();
+            StudentId newStudent = new StudentId() { StudentName = "Jim", HomeTown = "Houstalantavegas", FavFood = "Tears" };
+
+            //SC.CreateStudent(newStudent);
+
+            SC.DeleteStudent(2);
+            SC.DeleteStudent(1);
 
 
             List<string> names = new List<string> { "John", "Jack", "Jill", "Jane", "Joe" };
@@ -29,6 +46,7 @@
                 names.Add(GetUserInput("First, What is the new students first name?"));
                 Console.WriteLine();
                 Console.WriteLine($"The new students name is {names[5]}");
+                
                 homeTowns.Add(GetUserInput("Where is the student from?"));
                 Console.WriteLine();
                 Console.WriteLine($"{names[5]}'s hometownn is {homeTowns[5]}");
